@@ -1,0 +1,12 @@
+body{
+    background-color: whitesmoke
+}
+
+.card-title{
+    font-weight: 900;
+}
+
+.card-text{
+    font-weight: 800;
+    color: limegreen;
+}
