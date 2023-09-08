@@ -21,7 +21,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <ul class="list-group" id="item_list">
                     
                 </ul>
@@ -57,6 +57,10 @@
                       <label for="zipcode" class="form-label">Zip</label>
                       <input type="text" class="form-control" id="zipcode" name="zipcode">
                     </div>
+                    <div class="col-md-2">
+                      <label for="total" class="form-label">Total Amount</label>
+                      <input type="text" readonly="" class="form-control" id="total" name="total">
+                    </div>
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary">Place Order</button>
                     </div>
@@ -77,15 +81,21 @@
         cart = JSON.parse(localStorage.getItem('cart'));
     }
 
+    let total = 0
     for(item in cart){
         let name = cart[item][1];
         let quantity = cart[item][0];
+        let price = cart[item][2];
+        total += cart[item][2];
 
-        itemstring = `<li class="list-group-item">${name}--${quantity}</li>`;
+        itemstring = `<li class="list-group-item d-flex justify-content-between "><span>quantity ${quantity} : </span><b>${name}</b> <span class="badge bg-warning rounded-pill"> ${price}</span></li>`;
         $('#item_list').append(itemstring);
     }
+    totalprice = `<li class="list-group-item d-flex justify-content-md-between align-items-center"><b> Total Price of Cart</b> <span>₹ ${total}</span></li>`
 
+    $("#item_list").append(totalprice);
     $('#items').val(JSON.stringify(cart));
+    $('#total').val("₹"+total);
     
 
 </script>

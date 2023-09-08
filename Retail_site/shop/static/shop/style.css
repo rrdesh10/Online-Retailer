@@ -1,5 +1,6 @@
 body{
-    background-color: whitesmoke
+    background-color: whitesmoke;
+    padding-top: 0.5em;
 }
 
 .card-title{
@@ -8,5 +9,5 @@ body{
 
 .card-text{
     font-weight: 800;
-    color: limegreen;
+    color: rgb(18, 27, 18);
 }
